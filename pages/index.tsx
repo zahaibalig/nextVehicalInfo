@@ -12,14 +12,15 @@ interface ITableData
     merke:[{merke:string}],
     handelsbetegnelse:string,
     kontrollfrist:string,
-    sistGodkjent:string
+    sistGodkjent:string,
+    registrertForstegangNorgeDato:string,
   }
 
 function App() {
    const [number , setNumber] = useState("");
    const [tableData , setTableData] = useState({} as ITableData);
 
-   const {kjoretoyId , merke, handelsbetegnelse, kontrollfrist, sistGodkjent} = tableData;
+   const {kjoretoyId , merke, handelsbetegnelse, kontrollfrist, sistGodkjent, registrertForstegangNorgeDato} = tableData;
   const getVehivleInfo = (number:any) => {
     fetch(
       `/api/info/${number}`,     
@@ -65,8 +66,8 @@ const handleChange = (e:any) => {
           <td>{handelsbetegnelse}</td>
         </tr>
         <tr>
-          {/* <th>Forstegangsregistrering</th>
-          <td>{registrertForstegangNorgeDato}</td> */}
+          <th>Forstegangsregistrering</th>
+          <td>{registrertForstegangNorgeDato}</td>
         </tr>
         <tr>
           <th>SistGodkjent</th>
